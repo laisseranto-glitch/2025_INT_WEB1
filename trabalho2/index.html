@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ateliê Laís Seranto</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f7f4fb;
+      font-family: 'Georgia', serif;
+      color: #4b3c69;
+    }
+
+    h2,
+    h3 {
+      color: #5f3b8b;
+    }
+
+    a,
+    .nav-link {
+      color: #5f3b8b;
+      transition: color 0.3s;
+    }
+
+    a:hover,
+    .nav-link:hover {
+      color: #9d7fc1;
+      text-decoration: none;
+    }
+
+    .navbar {
+      background-color: #e0d5f0;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-brand img {
+      height: 50px;
+      border-radius: 12px;
+      margin-right: 10px;
+    }
+
+    .btn-lavanda {
+      background-color: #b79bd1;
+      color: white;
+      font-weight: 600;
+      border-radius: 30px;
+      padding: 10px 25px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-lavanda:hover {
+      background-color: #9d7fc1;
+      transform: scale(1.05);
+      box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .carousel-item img {
+      height: 400px;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    section {
+      padding: 60px 0;
+    }
+
+    .text-lavanda {
+      color: #8c63d6;
+    }
+
+    .card {
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .card img {
+      border-radius: 15px 15px 0 0;
+      transition: transform 0.3s;
+      object-fit: cover;
+      height: 250px;
+      width: 100%;
+    }
+
+    .card img:hover {
+      transform: scale(1.05);
+    }
+
+    .card-body {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    #equipe .card {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    #equipe .card img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid #e0d5f0;
+    }
+
+    .card-body h5 {
+      margin-top: 10px;
+      font-weight: 600;
+    }
+
+    .testimonial-card {
+      background: #fff;
+      border-left: 5px solid #9d7fc1;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .testimonial-card p {
+      font-style: italic;
+      font-size: 0.95rem;
+    }
+
+    footer {
+      background-color: #e0d5f0;
+      padding: 40px 0;
+      color: #4b3c69;
+    }
+
+    footer a {
+      color: #5f3b8b;
+      transition: color 0.3s;
+    }
+
+    footer a:hover {
+      color: #9d7fc1;
+    }
+
+    /* Mensagem de sucesso */
+    #msg-sucesso {
+      display: none;
+      margin-top: 15px;
+      color: #28a745;
+      font-weight: bold;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="Ateliê.png" alt="Logo Ateliê Laís Seranto"> Ateliê Laís Seranto
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
+          <li class="nav-item"><a class="nav-link" href="#servicos">Serviços</a></li>
+          <li class="nav-item"><a class="nav-link" href="#equipe">Equipe</a></li>
+          <li class="nav-item"><a class="nav-link" href="#depoimentos">Depoimentos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+          <li class="nav-item"><a class="btn btn-lavanda ms-3" href="#contato">Agende seu Horário</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div id="carouselExample" class="carousel slide py-4" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="logo.png" class="d-block w-100" alt="Vestido 1">
+      </div>
+      <div class="carousel-item">
+        <img src="logo 2.png" class="d-block w-100" alt="Vestido 2">
+      </div>
+      <div class="carousel-item">
+        <img src="logo.png" class="d-block w-100" alt="Vestido 3">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+  <section id="sobre" class="container py-5">
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <h2 class="text-lavanda">Elegância que floresce em cada detalhe</h2>
+        <p>O Ateliê Laís Seranto cria vestidos de noiva únicos, inspirados na delicadeza das flores e na sofisticação da
+          lavanda. Cada peça é feita para transformar sonhos em realidade no seu grande dia.</p>
+        <a href="#servicos" class="btn btn-lavanda">Descubra mais</a>
+      </div>
+      <div class="col-md-6">
+        <img src="Fachada Atliê.png" class="img-fluid rounded shadow">
+      </div>
+    </div>
+  </section>
+  <section id="servicos" class="container py-5">
+    <h2 class="text-center mb-4">Nossos Serviços</h2>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card">
+          <img src="vestido colorido 3.jpg" class="card-img-top">
+          <div class="card-body text-center">
+            <h5 class="card-title">Vestidos Sob Medida</h5>
+            <p class="card-text">Criação personalizada para cada noiva.</p>
+            <a href="#" class="btn btn-lavanda">Saiba Mais</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <img src="vestido colorido 1.jpg" class="card-img-top">
+          <div class="card-body text-center">
+            <h5 class="card-title">Consultoria de Estilo</h5>
+            <p class="card-text">Acompanhamento completo na escolha do vestido.</p>
+            <a href="#" class="btn btn-lavanda">Saiba Mais</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <img src="vestido colorido 2.jpg" class="card-img-top">
+          <div class="card-body text-center">
+            <h5 class="card-title">Ajustes & Bordados</h5>
+            <p class="card-text">Detalhes que fazem toda diferença.</p>
+            <a href="#" class="btn btn-lavanda">Saiba Mais</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="equipe" class="container py-5">
+    <h2 class="text-center mb-4">Nossa Equipe</h2>
+    <div class="row g-4 justify-content-center">
+      <div class="col-md-4">
+        <div class="card">
+          <img src="Laís.jpeg" class="card-img-top p-3">
+          <div class="card-body">
+            <h5 class="card-title">Laís Seranto</h5>
+            <p class="card-text">Estilista Proprietária</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <img src="Larissa.jpeg" class="card-img-top p-3">
+          <div class="card-body">
+            <h5 class="card-title">Larissa Lira Sestari</h5>
+            <p class="card-text">Especialista em Bordados</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <img src="Vitória.jpeg" class="card-img-top p-3">
+          <div class="card-body">
+            <h5 class="card-title">Vitória Grabriele</h5>
+            <p class="card-text">Administradora Financeira</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="depoimentos" class="container py-5">
+    <h2 class="text-center mb-4">Depoimentos </h2>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="testimonial-card">
+          <p>"Meu vestido foi um sonho realizado! Cada detalhe foi pensado com carinho." - Mariana S.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="testimonial-card">
+          <p>"A equipe é incrível, me senti especial do início ao fim." - Camila R.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="testimonial-card">
+          <p>"Nunca imaginei que encontraria um vestido tão perfeito!" - Juliana T.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="testimonial-card">
+          <p>"Atendimento impecável e vestido dos sonhos, recomendo demais." - Bianca L.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="testimonial-card">
+          <p>"Me senti uma princesa! Tudo foi além das expectativas." - Fernanda M.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .btn-pink {
+      background-color: #9d7fc1;
+      border: none;
+      color: white;
+      transition: 0.3s;
+    }
+
+    .btn-pink:hover {
+      background-color: #5f3b8b;
+      color: white;
+    }
+  </style>
+
+  <div class="container my-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card shadow-lg border-0 rounded-4">
+          <div class="card-body p-4">
+            <h2 class="text-center mb-4">Entre em Contato</h2>
+
+            <form action="https://formspree.io/f/xdkwwnna" method="POST">
+
+              <div class="mb-3">
+                <label for="name" class="form-label">Nome</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Digite seu nome" required>
+              </div>
+
+              <div class="mb-3">
+                <label for="email" class="form-label">E-mail</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="seuemail@exemplo.com"
+                  required>
+              </div>
+
+              <div class="mb-3">
+                <label for="phone" class="form-label">Telefone (opcional)</label>
+                <input type="tel" class="form-control" id="phone" name="phone" placeholder="(xx) xxxxx-xxxx">
+              </div>
+
+              <div class="mb-3">
+                <label for="subject" class="form-label">Assunto</label>
+                <input type="text" class="form-control" id="subject" name="subject" placeholder="Digite o assunto">
+              </div>
+
+              <div class="mb-3">
+                <label for="message" class="form-label">Mensagem</label>
+                <textarea class="form-control" id="message" name="message" rows="5" placeholder="Digite sua mensagem"
+                  required></textarea>
+              </div>
+
+              <div class="d-grid">
+                <button type="submit" class="btn btn-pink btn-lg">Enviar</button>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+  <footer class="text-center">
+    <div class="container">
+      <img src="Ateliê.png" alt="Logo Ateliê Laís Seranto" height="60" class="mb-3">
+      <p>© 2025 Ateliê Laís Seranto - Todos os direitos reservados</p>
+      <div>
+        <a href="#"><i class="bi bi-instagram fs-3 mx-2"></i></a>
+        <a href="#"><i class="bi bi-facebook fs-3 mx-2"></i></a>
+        <a href="#"><i class="bi bi-whatsapp fs-3 mx-2"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    const form = document.getElementById("form-contato");
+    const msgSucesso = document.getElementById("msg-sucesso");
+
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const data = new FormData(form);
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (response.ok) {
+        msgSucesso.style.display = "block";
+        form.reset();
+      }
+    });
+  </script>
+</body>
+
+</html>
